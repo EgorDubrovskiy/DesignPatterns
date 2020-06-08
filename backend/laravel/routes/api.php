@@ -21,3 +21,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/ping', function () {
     return 'Welcome to Design Patterns';
 });
+
+Route::namespace('DesignPatterns')->prefix('design_patterns')->group(function () {
+
+    Route::namespace('Strategies')->prefix('strategies')->group(function () {
+        Route::prefix('array_formatter')->group(function () {
+            Route::get('all_formats', 'ArrayFormatterController@getAllFormats');
+        });
+
+    });
+
+});
